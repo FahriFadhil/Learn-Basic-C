@@ -12,6 +12,24 @@ int main()
         }
         printf("\n");
     }
+    printf("\n");
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            printf("%c", i % k == 0 ? '#' : '.');
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            printf("%c", j % k == 0 ? '#' : '.');
+        }
+        printf("\n");
+    }
 
     return 0;
 }
