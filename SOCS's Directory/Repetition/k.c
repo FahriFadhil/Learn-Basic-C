@@ -17,7 +17,7 @@ int main()
 
             for (int k = 0 + i; k < (j + i); k++)
             {
-                printf("%c", k % 2 == 0 ? '*' : '#');
+                printf("%c", k % 2 == 0 ? '*' : '#'); // If else
             }
             printf("\n");
         }

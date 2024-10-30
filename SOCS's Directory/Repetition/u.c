@@ -8,7 +8,7 @@ int main()
     {
         int n, l = 0, b = 0;
         char s[101];
-        scanf("%d", &n);
+        scanf("%d", &n) ;
         scanf("%s", s);
         for (int j = 0; j < n; j++)
         {

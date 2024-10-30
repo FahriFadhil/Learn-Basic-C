@@ -6,13 +6,16 @@ int main()
     scanf("%d", &t);
     for (int i = 0; i < t; i++)
     {
-        int n, m;
-        scanf("%d %d", &n, &m);
+        long long int n, m, small = 1000000;
+        scanf("%lld %lld", &n, &m);
         for (int j = 0; j < n; j++)
         {
-            int p;
-            scanf("%d", &p);
+            long long int p;
+            scanf("%lld", &p);
+            if (p < small)
+                small = p;
         }
+        printf("Case #%d: %lld\n", i + 1, m / small);
     }
 
     return 0;
