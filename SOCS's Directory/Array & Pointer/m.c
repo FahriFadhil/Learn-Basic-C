@@ -8,7 +8,7 @@ int main()
     {
         int n;
         scanf("%d", &n);
-        int arr[n][n];
+        int arr[n][n]; // 2x2
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < n; j++)
@@ -27,7 +27,6 @@ int main()
             printf("%d", sum);
             if (i < n - 1)
             {
-
                 printf(" ");
             }
         }

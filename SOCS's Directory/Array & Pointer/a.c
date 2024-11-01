@@ -14,7 +14,7 @@ int main()
     for (int i = 0; i < q; i++)
     {
         int a, b, sum = 0;
-        scanf("%d %d", &a, &b);
+        scanf("%d %d  ", &a, &b);
         for (int j = a - 1; j < b; j++)
         {
             sum += arrN[j];
