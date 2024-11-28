@@ -6,30 +6,34 @@ int main()
     scanf("%d", &t);
     for (int tc = 0; tc < t; tc++)
     {
-        int n;
+        int n, truee = 0;
         scanf("%d", &n);
-        int arr[n];
+
+        int arr[n], sum = 0;
         for (int i = 0; i < n; i++)
         {
             scanf("%d", &arr[i]);
+            sum += arr[i];
         }
         printf("Case #%d: ", tc + 1);
-        int divider = n / 2;
-        int sumLeft, sumRight;
-        for (int i = 0; i < divider; i++)
+
+        if (sum % 2 != 0)
         {
-            sumLeft += arr[i];
+            printf("No\n");
         }
-        for (int i = n; i > divider; i--)
+
+        int halfSum = 0;
+        for (int i = 0; i < n; i++)
         {
-            sumRight += arr[i - 1];
+            halfSum += arr[i];
+            if (halfSum == sum / 2)
+            {
+                printf("Yes\n");
+                truee = 1;
+                break;
+            }
         }
-        // printf("%d %d %d", sumLeft, sumRight, divider);
-        if (sumLeft == sumRight)
-        {
-            printf("Yes\n");
-        }
-        else
+        if (truee == 0)
         {
             printf("No\n");
         }
