@@ -2,7 +2,7 @@
 
 int main()
 {
-    int n, p;
+    int n, p = 0;
     int sIn[] = {30, 12, 35};
     int sOut[] = {10, 28, 7};
     scanf("%d", &n);
@@ -11,7 +11,7 @@ int main()
         int s;
         scanf("%d", &s);
         p += s;
-        if (p >= 40)
+        while (p >= 39)
         {
             p -= 40;
         }

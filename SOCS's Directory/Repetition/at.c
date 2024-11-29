@@ -26,10 +26,10 @@ int main()
             printf("\n");
         }
 
-        if (tc != t - 1)
-        {
-            printf("\n");
-        }
+        // if (tc != t - 1)
+        // {
+        //     printf("\n");
+        // }
     }
 
     return 0;

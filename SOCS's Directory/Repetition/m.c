@@ -6,7 +6,7 @@ int main()
     scanf("%d", &t);
     for (int i = 0; i < t; i++)
     {
-        int n, m, sum;
+        int n, m, sum = 0;
         scanf("%d %d", &n, &m);
         for (int j = 0; j < n; j++)
         {
