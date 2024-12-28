@@ -1,10 +1,12 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "__bit_reference": "c",
-        "algorithm": "c",
-        "bitset": "c",
-        "chrono": "c",
-        "unordered_map": "c"
+        "memory": "c",
+        "span": "c",
+        "utility": "c",
+        "__locale": "c",
+        "__string": "c",
+        "string": "c",
+        "string_view": "c"
     }
 }

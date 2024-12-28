@@ -79,3 +79,68 @@ int main()
     fclose(file);
     return 0;
 }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+//     FILE *file = fopen("testdata.in", "r");
+//     if (!file)
+//     {
+//         printf("File tidak ditemukan!");
+//     }
+
+//     int t;
+//     fscanf(file, "%d", &t);
+
+//     for (int i = 0; i < t; i++)
+//     {
+//         char s[110];
+//         fscanf(file, " %[^\n]", s);
+//         int len = strlen(s);
+//         int counter[26] = {0};
+
+//         int n;
+//         fscanf(file, "%d", &n);
+
+//         int check[26] = {0};
+
+//         for (int j = 0; j < n; j++)
+//         {
+//             char a;
+//             char b;
+//             fscanf(file, " %c %c", &a, &b);
+
+//             if (check[a - 'A'] == 0)
+//             {
+//                 for (int k = 0; k < len; k++)
+//                 {
+//                     if (s[k] == a)
+//                     {
+//                         s[k] = b;
+//                     }
+//                 }
+//                 check[a - 'A'] = 1;
+//             }
+//         }
+//         for (int j = 0; j < len; j++)
+//         {
+//             if (s[j] >= 'A' && s[j] <= 'Z')
+//             {
+//                 counter[s[j] - 'A']++;
+//             }
+//         }
+//         for (int j = 0; j < 26; j++)
+//         {
+//             if (counter[j] != 0)
+//             {
+//                 printf("%c %d\n", 'A' + j, counter[j]);
+//             }
+//         }
+//     }
+
+//     fclose(file);
+
+//     return 0;
+// }
