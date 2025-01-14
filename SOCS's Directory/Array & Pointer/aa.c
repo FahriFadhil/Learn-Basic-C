@@ -2,25 +2,40 @@
 
 int main()
 {
-    int n, s = 0;
+    int n;
     scanf("%d", &n);
-    int arrN[n], used[n];
+
+    int arr[n];
+    int dupeArr[n];
+    int count = 0;
+
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &arrN[i]);
+        scanf("%d", &arr[i]);
+        dupeArr[i] = 0;
     }
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = i + 1; j < n; j++)
+        int dupe = 0;
+
+        for (int j = 0; j < count; j++)
         {
-            if (arrN[i] == arrN[j])
+            if (arr[i] == dupeArr[j])
             {
-                s++;
+                dupe = 1;
+                break;
             }
         }
+
+        if (!dupe)
+        {
+            dupeArr[count] = arr[i];
+            count++;
+        }
     }
-    printf("%d\n", n - s);
+
+    printf("%d\n", count);
 
     return 0;
 }
