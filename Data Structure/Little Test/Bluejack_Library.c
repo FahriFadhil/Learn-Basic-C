@@ -162,7 +162,7 @@ int menu()
 
 int main()
 {
-    int BOOKIDGENERATION = 0;
+    // int BOOKIDGENERATION = 0;
     int EXITSTATUS = 0;
     while (!EXITSTATUS)
     {
@@ -173,7 +173,7 @@ int main()
             viewBook();
             break;
         case 2:
-            insertBook(&BOOKIDGENERATION);
+            insertBook(/*&BOOKIDGENERATION*/);
             break;
         case 3:
             removeBook();
