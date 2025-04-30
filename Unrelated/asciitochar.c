@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125};
+    for (int i = 0; i < (sizeof(arr)/sizeof(arr[0])); i++)
+    {
+        printf("%c", arr[i]);
+    }
+}

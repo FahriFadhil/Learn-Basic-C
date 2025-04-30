@@ -28,7 +28,6 @@ N *findMin(N *curr) {
     while (curr->left)
         curr = curr->left;
     N *temp = curr;
-    free(curr);
     return temp;
 }
 
