@@ -17,6 +17,12 @@ int menu() {
     return decision;
 }
 
+/* 
+o Ask the user to input the new slang word. Validate that the slang word must be more than 1 character and contains no space.
+o Ask the user to input the description (meaning) of the new word. Validate that the description must be more than 1 word.
+o Store the new released slang word to a Trie data structure along with its description. 
+*/
+
 void releaseNewSlang() {
     int validSlang = 0;
     do
@@ -30,9 +36,10 @@ void releaseNewSlang() {
         }
         for (int i = 0; i < strlen(slang); i++)
         {
-            /* code */
+            if(slang[i] == ' ') {
+
+            }
         }
-        
         
     } while (validSlang == 0);
     
