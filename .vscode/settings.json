@@ -3,7 +3,9 @@
         "*.ejs": "html",
         "stdio.h": "c",
         "system_error": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "limits": "c",
+        "algorithm": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang"
 }
