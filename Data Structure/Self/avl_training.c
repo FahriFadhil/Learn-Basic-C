@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Node {
+typedef struct Node
+{
     int val;
     int height;
     struct Node *left, *right;
@@ -60,8 +61,8 @@ N *insertNode(N *root, int val) {
     if (val < root->val)
         root->left = insertNode(root->left, val);
     else if (val > root->val)
-        root->right = insertNode(root->right, val); 
-
+        root->right = insertNode(root->right, val);
+    
     root->height = 1 + max(height(root->left), height(root->right));
     int balance = getBalance(root);
 
@@ -79,7 +80,7 @@ N *insertNode(N *root, int val) {
         root->right = rightRotate(root->right);
         return leftRotate(root);
     }
-
+    
     return root;
 }
 
@@ -91,16 +92,15 @@ N *findMin(N *root) {
     }
     return temp;
 }
-    
-N *removeNode(N *root, int val) {
-    if (root == NULL) return root;
-    
-    if (val < root->val)
-        root->left = insertNode(root->left, val);
-    else if (val > root->val)
-        root->right = insertNode(root->right, val); 
-    else {
 
+N *deleteNode(N *root, int val) {
+    if (root == NULL) return root;
+
+     if (val < root->val)
+        root->left = deleteNode(root->left, val);
+    else if (val > root->val)
+        root->right = deleteNode(root->right, val);
+    else {
         if (!root->left && !root->right)
         {
             free(root);
@@ -118,11 +118,13 @@ N *removeNode(N *root, int val) {
             free(root);
             return temp;
         }
-
-        N *temp = findMin(root);
+        
+        N *temp = findMin(root->right);
         root->val = temp->val;
-        root->right = removeNode(root->right, temp->val);
+        root->right = deleteNode(root->right, temp->val);
     }
+
+    if (root == NULL) return root;
 
     root->height = 1 + max(height(root->left), height(root->right));
     int balance = getBalance(root);
@@ -130,24 +132,23 @@ N *removeNode(N *root, int val) {
     if (balance > 1)
     {
         if (getBalance(root->left) >= 0)
-        {
             return rightRotate(root);
-        } else {
+        else {
             root->left = leftRotate(root->left);
             return rightRotate(root);
         }
     }
+
     if (balance < -1)
     {
         if (getBalance(root->right) <= 0)
-        {
             return leftRotate(root);
-        } else {
+        else {
             root->right = rightRotate(root->right);
             return leftRotate(root);
         }
     }
-    
+
     return root;
 }
 
@@ -162,21 +163,20 @@ void inorderTrav(N *root) {
 
 int main() {
     N *root = NULL;
+    int arr[] = {30, 20, 40, 10, 25, 50, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    root = insertNode(root, 50);
-    root = insertNode(root, 30);
-    root = insertNode(root, 70);
-    root = insertNode(root, 20);
-    root = insertNode(root, 40);
-    root = insertNode(root, 60);
-    root = insertNode(root, 80);
-    root = insertNode(root, 90);
+    for (int i = 0; i < n; i++)
+        root = insertNode(root, arr[i]);
 
+    printf("In-order traversal before deletion:\n");
     inorderTrav(root);
     printf("\n");
-    
-    root = removeNode(root, 50);
-    
+
+    root = deleteNode(root, 40);
+    root = deleteNode(root, 25);
+
+    printf("In-order traversal after deletion:\n");
     inorderTrav(root);
     printf("\n");
 
