@@ -27,8 +27,7 @@ N *insert(N *curr, int value) {
 N *findMin(N *curr) {
     while (curr->left)
         curr = curr->left;
-    N *temp = curr;
-    return temp;
+    return curr;
 }
 
 N *deleteNode(N *curr, int value) {

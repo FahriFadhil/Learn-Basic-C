@@ -1,9 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+
+#define ASCII_SIZE 128
+
+typedef struct TrieNode {
+    struct TrieNode* children[ASCII_SIZE];
+    char* description;
+    bool isCompletedWord;
+} TN;
+
 
 int menu() {
-    printf("Welcome to Boogle!\n");
+    printf("\nWelcome to Boogle!\n");
     printf("==================\n");
     printf("1. Release a new slang word\n");
     printf("2. Search a slang word\n");
@@ -23,26 +33,69 @@ o Ask the user to input the description (meaning) of the new word. Validate that
 o Store the new released slang word to a Trie data structure along with its description. 
 */
 
+void insertTrie() {
+
+}
+
 void releaseNewSlang() {
     int validSlang = 0;
-    do
-    {
-        char slang[64];
-        getchar();
-        scanf("%[^\n]", slang);
-        if (strlen(slang) < 1)
-        {
+    char slang[64];
+    printf("Input a new slang word [Must be more than 1 characters and contains no space] \n");
+    do {
+        printf(">> ");
+        scanf(" %[^\n]", slang);
+
+        if (strlen(slang) <= 1) {
+            printf("Slang must be more than 1 character!\n");
             continue;
         }
-        for (int i = 0; i < strlen(slang); i++)
-        {
-            if(slang[i] == ' ') {
 
+        int hasSpace = 0;
+        for (int i = 0; i < strlen(slang); i++) {
+            if (slang[i] == ' ') {
+                hasSpace = 1;
+                break;
+            }
+        }
+
+        if (hasSpace) {
+            printf("Slang must not contain spaces!\n");
+        } else {
+            validSlang = 1;
+        }
+
+    } while (!validSlang);
+    
+    int validDesc = 0;
+    char desc[256];
+    printf("Input a new slang word description [Must be more than 2 words] \n");
+    do
+    {
+        printf(">> ");
+        scanf(" %[^\n]", desc);
+
+        int validSpaces = 0;
+        for (int i = 0; i < strlen(desc); i++)
+        {
+            if (desc[i] == ' ')
+            {
+                if (desc[i-1] && desc[i+1] && desc[i-1] != ' ' && desc[i+1] != ' ')
+                {
+                    validSpaces++;
+                }
             }
         }
         
-    } while (validSlang == 0);
+        if (validSpaces >= 2)
+        {
+            validDesc = 1;
+        } else {
+            printf("Description must be more than 2 words!\n");
+        }
     
+    } while (validDesc == 0);
+
+    insertTrie(slang, desc);
 }
 
 int main() {
